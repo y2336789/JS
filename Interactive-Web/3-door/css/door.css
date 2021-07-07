@@ -1,0 +1,80 @@
+.stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #333;
+}
+
+.door {
+  position: relative;
+  width: 100px;
+  height: 150px;
+}
+
+.door-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  /* door-back 안에 캐릭터를 하위 단계에 넣어주었고, 영역을 벗어나서 문의 가로크기만큼 오른쪽으로 넘김,
+  그에 따라서 door-back의 영역을 벗어나면 보여지지 않게 hidden값 설정! */
+  overflow: hidden;
+}
+
+.ilbuni {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: contain;
+  /* 캐릭터를 옆으로 이동 -> 오른쪽에서 왼쪽으로 나오기 위해 옮겨둠 */
+  transform: translate3d(100%, 0, 0);
+  /* 딜레이를 0.5초줌! */
+  transition: 0.5s 0.5s;
+}
+.door:nth-child(1) .ilbuni {
+  background-image: url(../images/ilbuni_0.png);
+}
+
+.door:nth-child(2) .ilbuni {
+  background-image: url(../images/ilbuni_1.png);
+}
+
+.door:nth-child(3) .ilbuni {
+  background-image: url(../images/ilbuni_2.png);
+}
+
+.door-body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  transform-origin: left;
+}
+
+.door:nth-child(1) .door-body {
+  background: rgba(255, 0, 0, 0.7);
+}
+.door:nth-child(2) .door-body {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+.door:nth-child(3) .door-body {
+  background-color: rgba(0, 0, 255, 0.7);
+}
+
+.door-opend .door-body {
+  transform: perspective(800px) rotateY(-100deg);
+}
+
+.door-opend .ilbuni {
+  transform: translate3d(0, 0, 0);
+}
