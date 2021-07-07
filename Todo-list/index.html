@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="reset.css" />
   </head>
   <body>
+    <h4 class="js-greetings greetings"></h4>
     <div class="js-clock">
       <h2>Current Time is</h2>
       <h1>00:00</h1>
@@ -14,17 +15,30 @@
     <form class="js-form form">
       <input type="text" placeholder="What is your name?" />
     </form>
-    <h4 class="js-greetings greetings"></h4>
     <form class="js-toDoForm">
-      <input type="text" placeholder="Write a what to do!" />
+      <input
+        type="text"
+        placeholder="Write a what to do!"
+        style="
+          color: gainsboro;
+          text-align: center;
+          font-size: 1rem;
+          font-weight: bold;
+        "
+      />
     </form>
     <ul class="js-toDoList"></ul>
+    <div id="quote">
+      <h3></h3>
+      <h5 id="author"></h5>
+    </div>
     <span class="js-weather"></span>
     <script src="./js/clock.js"></script>
     <script src="./js/grettingg.js"></script>
     <script src="./js/todo.js"></script>
     <script src="./js/bg.js"></script>
     <script src="./js/weather.js"></script>
+    <script src="./js/quotes.js"></script>
     <script>
       (function () {
         const time = document.querySelector(".js-clock");

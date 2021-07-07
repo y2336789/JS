@@ -30,6 +30,7 @@ function paintToDo(text) {
   idNumbers += 1;
   delBtn.innerText = "❌";
   delBtn.addEventListener("click", deleteToDo);
+  delBtn.style = "margin-right: 10px";
   span.innerText = text;
   li.appendChild(delBtn);
   li.appendChild(span);

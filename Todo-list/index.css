@@ -53,14 +53,28 @@ body {
 .js-clock h1 {
   font-size: 100px;
   font-family: "Staatliches", cursive;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .js-toDoForm input {
+  margin: 10px 0 10px 0;
   border: none;
+  border-bottom: 3px solid black;
+  width: 550px;
+  height: 30px;
+  background-color: transparent;
+  outline-style: none;
+}
+
+.js-toDoForm input::placeholder {
+  color: gainsboro;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .js-clock {
+  margin: 20px;
   text-align: center;
   color: white;
   transition: 1s;
@@ -70,4 +84,24 @@ body {
   color: black;
   size: 3rem;
   transition: 1s;
+}
+
+.js-toDoList {
+  margin-bottom: 40px;
+}
+
+#quote {
+  text-align: center;
+  font-family: "Lobster", cursive;
+  font-size: 2rem;
+  transition: 1s;
+  color: white;
+}
+#quote h3 {
+  border-bottom: 1px solid snow;
+  margin-bottom: 20px;
+}
+
+.js-weather {
+  margin-top: 20px;
 }
