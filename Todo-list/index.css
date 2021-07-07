@@ -52,8 +52,22 @@ body {
 
 .js-clock h1 {
   font-size: 100px;
+  font-family: "Staatliches", cursive;
+  margin-bottom: 25px;
 }
 
 .js-toDoForm input {
   border: none;
+}
+
+.js-clock {
+  text-align: center;
+  color: white;
+  transition: 1s;
+}
+
+.color_change {
+  color: black;
+  size: 3rem;
+  transition: 1s;
 }

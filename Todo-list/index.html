@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Something</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="reset.css" />
+  </head>
+  <body>
+    <div class="js-clock">
+      <h2>Current Time is</h2>
+      <h1>00:00</h1>
+    </div>
+    <form class="js-form form">
+      <input type="text" placeholder="What is your name?" />
+    </form>
+    <h4 class="js-greetings greetings"></h4>
+    <form class="js-toDoForm">
+      <input type="text" placeholder="Write a what to do!" />
+    </form>
+    <ul class="js-toDoList"></ul>
+    <span class="js-weather"></span>
+    <script src="./js/clock.js"></script>
+    <script src="./js/grettingg.js"></script>
+    <script src="./js/todo.js"></script>
+    <script src="./js/bg.js"></script>
+    <script src="./js/weather.js"></script>
+    <script>
+      (function () {
+        const time = document.querySelector(".js-clock");
+
+        time.addEventListener("click", function () {
+          if (!time.classList.contains("color_change")) {
+            time.classList.add("color_change");
+          } else {
+            time.classList.remove("color_change");
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
