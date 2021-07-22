@@ -1,0 +1,53 @@
+@charset 'utf-8';
+
+html {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+}
+body {
+  overflow-x: hidden;
+  color: rgb(29, 29, 31);
+  /* 글자 사이 간격 줄이기 */
+  letter-spacing: -0.05em;
+  background: white;
+}
+p {
+  /* 줄 간격 */
+  line-height: 1.6;
+}
+a {
+  color: rgb(29, 29, 31);
+  text-decoration: none;
+}
+
+.global-nav {
+  height: 44px;
+}
+.local-nav {
+  height: 52px;
+  border-bottom: 1px solid #ddd;
+}
+.global-nav-links,
+.local-nav-links {
+  /* 최대 폭 설정 및 center 정렬*/
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+}
+.global-nav-links {
+  justify-content: space-between;
+}
+.product-name {
+  margin-right: auto;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+.local-nav-links a:not(.product-name) {
+  font-size: 0.8rem;
+}
+/* 괄호 안 조건은 뺀 나머지 a 태그들만 -> :not(클래스명) */
+.local-nav-links a:not(.product-name) {
+  margin-left: 2em;
+}
