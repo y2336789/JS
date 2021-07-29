@@ -76,13 +76,14 @@ a {
   text-align: center;
 }
 .main-message small {
-  /* 개행이 이뤄짐 */
+  /* display block으로 인한 개행이 이뤄짐 */
   display: block;
   margin-bottom: 0.5em;
   font-size: 1.2rem;
 }
 /* scroll-section 1 */
 .description {
+  /* 섹션을 줄이기 보다는 섹션 안의 요소를 줄인다! */
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem;
@@ -91,6 +92,7 @@ a {
 }
 /* font-size는 rem, margin,padding,height 등의 값은 em */
 .description strong {
+  /* float: left를 없애면 글자간 크기 공백을 채우지 않음! */
   float: left;
   margin-right: 0.2em;
   font-size: 3rem;
@@ -135,6 +137,25 @@ a {
   height: 7rem;
   color: white;
   background: darkorange;
+  margin-top: 50vh;
+}
+/* sticky-elem */
+.sticky-elem {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* width: 100%를 해주니 딱 중앙에 나왔음! */
+  width: 100%;
+}
+
+/* body에 id값을 추가해 해당 씬만 추가하고 나머지는 display : none!
+body에 id값이 할당 되있어야 밑으로 내려가면서 section을 찾음! */
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem {
+  display: block;
 }
 
 @media (min-width: 1024px) {
