@@ -2,6 +2,8 @@
 // 전역 변수 사용을 피하고자 이리 선언!
 (() => {
   let yOffset = 0;
+  let prevScrollHeight = 0; // 현재 스크롤 위치보다 이전에 위치한 스크롤 섹션들의 스크롤 높이
+  let currentScence = 0; // 현재 활성화된(눈 앞데 보고있는) 씬(scroll-section)
 
   const sceneInfo = [
     {
@@ -56,6 +58,20 @@
   function scrollLoop() {
     // 현재 스크롤한 위치 파악 가능
     // console.log(window.pageYOffset);
+    prevScrollHeight = 0;
+    for (let i = 0; i < currentScence; i++) {
+      // scence마다 높이를 계산
+      prevScrollHeight = prevScrollHeight + sceneInfo[i].scrollHeight;
+      //   console.log(prevScrollHeight);
+    }
+    if (yOffset > prevScrollHeight + sceneInfo[currentScence].scrollHeight) {
+      currentScence++;
+    }
+    if (yOffset < prevScrollHeight) {
+      if (currentScence === 0) return;
+      currentScence--;
+    }
+    console.log(currentScence);
   }
   // 윈도우 객체가 창 크기가 바뀔 경우 setLayout 호출!
   window.addEventListener("resize", setLayout);
