@@ -12,14 +12,15 @@
       heightNum: 5, // 브라우저 높이의 5배로 scrollHeight 세팅 -> 기기마다 다른 높이 * 5의 크기로 스크롤!
       scrollHeight: 0,
       objs: {
+        // 스크롤 섹션 1개, 섹션 내에 애니메이션 효과를 받을 텍스트 4개
         container: document.querySelector("#scroll-section-0"),
-        messageA: document.querySelector(".#scroll-section-0. main-message.a"),
-        messageB: document.querySelector(".#scroll-section-0. main-message.b"),
-        messageC: document.querySelector(".#scroll-section-0. main-message.c"),
-        messageD: document.querySelector(".#scroll-section-0. main-message.d"),
+        messageA: document.querySelector("#scroll-section-0 .main-message.a"),
+        messageB: document.querySelector("#scroll-section-0 .main-message.b"),
+        messageC: document.querySelector("#scroll-section-0 .main-message.c"),
+        messageD: document.querySelector("#scroll-section-0 .main-message.d"),
       },
       values: {
-        messageA_opcacity: [0, 1],
+        messageA_opacity: [0, 1],
       },
     },
     {
@@ -54,6 +55,7 @@
   function setLayout() {
     // 각 스크롤 섹션의 높이를 세팅
     for (let i = 0; i < sceneInfo.length; i++) {
+      // window.innerHeight -> 사용자의 화면 높이
       sceneInfo[i].scrollHeight = sceneInfo[i].heightNum * window.innerHeight;
       // 쿼리셀렉터로 섹션을 찾고 섹션에 스타일 height를 주는데 ??px값으로 줘야하기 때문에 백틱 사용!
       sceneInfo[
@@ -71,12 +73,32 @@
         break;
       }
     }
-    document.body.setAttribute("body", `show-scence-${currentScence}`);
+    document.body.setAttribute("id", `show-scene-${currentScence}`);
+  }
+
+  // values => opacity가 변할 값 (0 ~ 1)
+  // 스크롤 섹션마다 스크롤된 비율을 구해야함 -> yOffset은 전체 스크롤에서의 스크롤된 높이라 다른 변수를 사용해야함
+  // currentYOffset이란 변수를 사용할 것임
+  function calcValues(values, currentYOffset) {
+    let rv;
+    // 현재 스크롤섹션에서 스크롤된 범위를 비율로 구하기
+    let scrollRatio = currentYOffset / sceneInfo[currentScence].scrollHeight;
+    rv = scrollRatio * (values[1] - values[0]) + values[0];
+
+    return rv;
   }
 
   function playAnimation() {
+    const objs = sceneInfo[currentScence].objs;
+    const values = sceneInfo[currentScence].values;
+    const currentYOffset = yOffset - prevScrollHeight;
     switch (currentScence) {
       case 0:
+        let messageA_opacity_in = calcValues(
+          values.messageA_opacity,
+          currentYOffset
+        );
+        objs.messageA.style.opacity = messageA_opacity_in;
         break;
       case 1:
         break;

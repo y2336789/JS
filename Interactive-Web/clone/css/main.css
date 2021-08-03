@@ -82,6 +82,7 @@ main.js에서 scrollLoop에 약간의 오차가 발생
   margin: 5px 0;
   height: 3em;
   font-size: 2.5rem;
+  opacity: 0;
 }
 .main-message p {
   line-height: 1.2;
