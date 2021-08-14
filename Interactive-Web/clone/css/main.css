@@ -79,6 +79,7 @@ main.js에서 scrollLoop에 약간의 오차가 발생
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 35vh;
   margin: 5px 0;
   height: 3em;
   font-size: 2.5rem;
@@ -156,7 +157,6 @@ main.js에서 scrollLoop에 약간의 오차가 발생
 .sticky-elem {
   display: none;
   position: fixed;
-  top: 0;
   left: 0;
   /* width: 100%를 해주니 딱 중앙에 나왔음! */
   width: 100%;
