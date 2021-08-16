@@ -67,7 +67,7 @@ main.js에서 scrollLoop에 약간의 오차가 발생
 }
 
 .scroll-section {
-  border: 3px solid red;
+  /* border: 3px solid red; */
   padding-top: 50vh;
 }
 /* scroll-section 0 */
@@ -126,6 +126,16 @@ main.js에서 scrollLoop에 약간의 오차가 발생
   height: 100px;
   background: rgb(29, 29, 31);
 }
+
+#scroll-section-2 .b {
+  top: 10%;
+  left: 40%;
+}
+#scroll-section-2 .c {
+  top: 15%;
+  left: 45%;
+}
+
 /* scroll-section 3 */
 .mid-message {
   max-width: 1000px;
@@ -193,6 +203,13 @@ body에 id값이 할당 되있어야 밑으로 내려가면서 section을 찾음
   }
   .desc-message {
     width: 20%;
+  }
+  #scroll-section-2 .b {
+    top: 20%;
+    left: 53%;
+  }
+  #scroll-section-2 .c {
+    left: 55%;
   }
   .mid-message {
     font-size: 4vw;
