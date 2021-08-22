@@ -24,6 +24,7 @@ a {
 main.js에서 scrollLoop에 약간의 오차가 발생
 -> position: absolute로 활용 */
 .global-nav {
+  z-index: 10;
   position: absolute;
   top: 0;
   left: 0;
@@ -32,6 +33,7 @@ main.js에서 scrollLoop에 약간의 오차가 발생
   padding: 0 1rem;
 }
 .local-nav {
+  z-index: 11;
   position: absolute;
   top: 45px;
   left: 0;
@@ -179,6 +181,11 @@ body에 id값이 할당 되있어야 밑으로 내려가면서 section을 찾음
 #show-scene-2 #scroll-section-2 .sticky-elem,
 #show-scene-3 #scroll-section-3 .sticky-elem {
   display: block;
+}
+
+.sticky-elem-canvas {
+  top: 0;
+  background: #ccc;
 }
 
 @media (min-width: 1024px) {
